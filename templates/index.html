@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>CitizenAI - Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Navbar -->
+    <nav class="bg-blue-600 text-white px-6 py-4 flex justify-between items-center">
+        <div class="text-xl font-bold">CitizenAI</div>
+        <div class="space-x-4">
+            <a href="{{ url_for('index') }}" class="hover:underline">Home</a>
+            <a href="{{ url_for('chat_bp.chat') }}" class="hover:underline">Chat</a>
+            <a href="{{ url_for('dashboard_bp.dashboard') }}" class="hover:underline">Dashboard</a>
+            <a href="{{ url_for('about') }}" class="hover:underline">About</a>
+            {% if session.get('user') %}
+                <span class="font-semibold">👤 {{ session['user'] }}</span>
+                <a href="{{ url_for('auth_bp.logout') }}" class="hover:underline">Logout</a>
+            {% else %}
+                <a href="{{ url_for('auth_bp.signup') }}" class="hover:underline">Sign Up</a>
+                <a href="{{ url_for('auth_bp.login') }}" class="hover:underline">Login</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <div class="p-8 text-center">
+        <h1 class="text-3xl font-bold">Welcome to CitizenAI</h1>
+        <p class="mt-4 text-gray-700">Empowering Citizens Through AI</p>
+    </div>
+</body>
+</html>

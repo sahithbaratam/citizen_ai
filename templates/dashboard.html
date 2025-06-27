@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-4xl mx-auto bg-white p-6 rounded shadow">
+        <h2 class="text-2xl font-bold mb-6">Citizen Insights Dashboard</h2>
+
+        <div class="grid grid-cols-3 gap-4 mb-6">
+            <div class="bg-green-200 p-4 rounded text-center font-semibold">Positive: {{ positive }}</div>
+            <div class="bg-yellow-200 p-4 rounded text-center font-semibold">Neutral: {{ neutral }}</div>
+            <div class="bg-red-200 p-4 rounded text-center font-semibold">Negative: {{ negative }}</div>
+        </div>
+
+        <h3 class="text-xl font-semibold mb-2">Recent Feedbacks</h3>
+        <ul class="space-y-2">
+            {% for fb in feedbacks %}
+            <li class="border p-3 rounded">
+                <strong>{{ fb.sentiment }}</strong>: {{ fb.message }}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
