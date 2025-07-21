@@ -1,5 +1,0 @@
-fastapi
-langchain_ibm
-uvicorn
-python-multipart
-langchain
